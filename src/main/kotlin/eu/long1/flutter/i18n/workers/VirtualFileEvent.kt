@@ -107,7 +107,8 @@ class VirtualFileEvent(private val project: Project) : VirtualFileListener {
                 if (sdk != null) {
                     val root = PubRoot.forFile(event.file)
                     if (root != null) {
-                        FlutterSdk.getFlutterSdk(project)!!.startPackagesGet(root, project)
+                        FlutterSdk.getFlutterSdk(project)!!.startPubGet(root, project)
+                        //FlutterSdk.getFlutterSdk(project)!!.startPackagesGet(root, project)
                     }
                 }
             }
