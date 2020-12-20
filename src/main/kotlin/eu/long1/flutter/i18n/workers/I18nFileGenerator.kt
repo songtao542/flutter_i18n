@@ -196,7 +196,7 @@ class I18nFileGenerator(private val project: Project) {
         var hasItems = false
         while (PARAMETER_MATCHER.find()) {
             if (!hasItems) {
-                builder.append("  String $id(")
+                builder.append("  String $id({")
                 hasItems = true
             }
 
@@ -206,12 +206,12 @@ class I18nFileGenerator(private val project: Project) {
 
         if (hasItems) {
             builder.setLength(builder.length - 2)
-            builder.append(")")
+            builder.append("})")
         } else {
             builder.append("  String get $id")
         }
 
-        builder.append(" => \"$value\";\n")
+        builder.append(" => \"$value\"; // ignore: unnecessary_brace_in_string_interps\n")
     }
 
     internal fun appendPluralMethod(
