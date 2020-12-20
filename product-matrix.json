@@ -2,42 +2,43 @@
   "181.5540.23": {
     "comments": "2018.1",
     "ideaVersion": "181.5540.23",
+    "ideaBuildNumber": "181.5540.23",
     "dartPluginVersion": "181.4445.29",
     "flutterPluginVersion": "31.3.1",
     "sinceBuild": "181.5540.23",
     "untilBuild": "181.*"
   },
-
   "182.5107.41": {
     "comments": "2018.2",
     "ideaVersion": "182.5107.41",
+    "ideaBuildNumber": "182.5107.41",
     "dartPluginVersion": "182.5215",
     "flutterPluginVersion": "33.4.1",
     "sinceBuild": "182.5107.7",
     "untilBuild": "182.*"
   },
-
   "183.5153.38": {
-      "comments": "2018.3",
-      "ideaVersion": "183.5153.38",
-      "dartPluginVersion": "183.5901",
-      "flutterPluginVersion": "32.0.3",
-      "sinceBuild": "183.5153.38.34.*",
-      "untilBuild": "183.*"
+    "comments": "2018.3",
+    "ideaVersion": "183.5153.38",
+    "ideaBuildNumber": "183.5153.38",
+    "dartPluginVersion": "183.5901",
+    "flutterPluginVersion": "32.0.3",
+    "sinceBuild": "183.5153.38.34.*",
+    "untilBuild": "183.*"
   },
-
   "191.4738.6": {
     "comments": "2019.1",
     "ideaVersion": "191.4738.6",
+    "ideaBuildNumber": "191.4738.6",
     "dartPluginVersion": "191.4738.6",
     "flutterPluginVersion": "34.0.4",
     "sinceBuild": "191.0",
     "untilBuild": "191.*"
   },
-
   "192.5728.98": {
     "comments": "2019.2",
     "ideaVersion": "192.5728.98",
+    "ideaBuildNumber": "192.5728.98",
     "dartPluginVersion": "192.5728.98",
     "flutterPluginVersion": "38.1.4",
     "sinceBuild": "192.0",
@@ -46,6 +47,7 @@
   "2020.1.4": {
     "comments": "2020.1",
     "ideaVersion": "2020.1.4",
+    "ideaBuildNumber": "201.8743.12",
     "dartPluginVersion": "201.9245",
     "flutterPluginVersion": "52.1.1",
     "sinceBuild": "201.0",

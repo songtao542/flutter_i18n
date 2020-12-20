@@ -4,10 +4,42 @@ plugins {
     id 'org.jetbrains.kotlin.jvm' version '1.3.21'
 }
 
+// Load product matrix.
+def productMatrixFile = 'product-matrix.json'
+def jsonFile = new File(productMatrixFile)
+if (jsonFile == null) {
+    // noinspection GroovyAssignabilityCheck
+    throw new GradleException("Unable to read $productMatrixFile, is it missing?")
+}
+
+// Fail if the product details file isn't found.
+// noinspection UnnecessaryQualifiedReference
+def productMatrix = new groovy.json.JsonSlurper().parseText(jsonFile.text)
+if (productMatrix == null || !(productMatrix instanceof Map)) {
+    // noinspection GroovyAssignabilityCheck
+    throw new GradleException("Unable to read $productMatrixFile.")
+}
+
+def ideaVersion = null
+def ideaBuildNumber = null
+
+// If an ideaVersionPrefix is provided, search for the first matched product and use that.
+if (ideaVersionPrefix != '') {
+    def productMatrixKeys = productMatrix.keySet() as String[]
+    for (productMatrixKey in productMatrixKeys) {
+        if (productMatrixKey != null && productMatrixKey.startsWith("${ideaVersionPrefix}.")) {
+            ideaVersion = productMatrixKey
+            ideaBuildNumber = productMatrix.get(productMatrixKey).get("ideaBuildNumber")
+            break
+        }
+    }
+}
+
 def pluginVersionSuffix = ideaVersionPrefix != '' ? '-' + ideaVersionPrefix : ''
 
 group 'eu.long1.flutter'
-version(pluginVersion + pluginVersionSuffix)
+//version(pluginVersion + pluginVersionSuffix)
+version(pluginVersion + "-" + ideaBuildNumber)
 
 repositories {
     mavenCentral()
@@ -67,7 +99,7 @@ intellij {
     plugins = requiredPlugins
 }
 
-// Load product matrix.
+/*// Load product matrix.
 def productMatrixFile = 'product-matrix.json'
 def jsonFile = new File(productMatrixFile)
 if (jsonFile == null) {
@@ -83,16 +115,20 @@ if (productMatrix == null || !(productMatrix instanceof Map)) {
     throw new GradleException("Unable to read $productMatrixFile.")
 }
 
+def ideaVersion = null
+def ideaBuildNumber = null
+
 // If an ideaVersionPrefix is provided, search for the first matched product and use that.
 if (ideaVersionPrefix != '') {
     def productMatrixKeys = productMatrix.keySet() as String[]
     for (productMatrixKey in productMatrixKeys) {
         if (productMatrixKey != null && productMatrixKey.startsWith("${ideaVersionPrefix}.")) {
             ideaVersion = productMatrixKey
+            ideaBuildNumber = productMatrix.get(productMatrixKey).get("ideaBuildNumber")
             break
         }
     }
-}
+}*/
 
 // Fail if requested version is unsupported.
 if (!productMatrix.containsKey(ideaVersion)) {
@@ -118,6 +154,7 @@ System.out.println("Since: ${productDetails.sinceBuild}")
 System.out.println("Until: ${productDetails.untilBuild}")
 System.out.println("Dart: ${productDetails.dartPluginVersion}")
 System.out.println("ideaVersion: $ideaVersion")
+System.out.println("ideaBuildNumber: $ideaBuildNumber")
 System.out.println("Flutter: ${productDetails.flutterPluginVersion}\n")
 System.out.println("Artifacts output directory: ${rootProject.buildDir}\n")
 
