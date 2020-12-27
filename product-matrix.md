@@ -2,3 +2,5 @@
 product-matrix.json 中的配置要以版本号为准，而不是 Build Number
 
 https://www.jetbrains.com/intellij-repository/releases/
+
+编译命令： ./build.sh 1.0.8  or  ./gradlew clean buildPlugin -PideaVersionPrefix=2020 -PpluginVersion=1.0.0
