@@ -48,8 +48,17 @@
     "comments": "2020.1",
     "ideaVersion": "2020.1.4",
     "ideaBuildNumber": "201.8743.12",
-    "dartPluginVersion": "201.9245",
+    "dartPluginVersion": "201.8743",
     "flutterPluginVersion": "52.1.1",
+    "sinceBuild": "201.0",
+    "untilBuild": "201.*"
+  },
+  "201.8743.12": {
+    "comments": "2020.07.21",
+    "ideaVersion": "201.8743.12",
+    "ideaBuildNumber": "201.8743.12",
+    "dartPluginVersion": "201.9317",
+    "flutterPluginVersion": "52.2.1",
     "sinceBuild": "201.0",
     "untilBuild": "201.*"
   }

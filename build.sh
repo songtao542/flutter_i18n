@@ -16,7 +16,7 @@ fi
 
 # Supported platform versions.
 #VERSIONS="181 182 183 191 192 2020"
-VERSIONS="2020"
+VERSIONS="201"
 
 # Requested version to build.
 PLUGIN_VERSION=$1
